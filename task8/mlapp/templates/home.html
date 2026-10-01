@@ -1,0 +1,65 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+
+    <title>Student Placement Prediction</title>
+
+    <link rel="stylesheet"
+          href="{% static 'style.css' %}">
+
+</head>
+
+<body>
+
+<div class="navbar">
+
+    <div class="logo">
+        PlacementAI
+    </div>
+
+    <div class="nav-text">
+        Student Career Prediction System
+    </div>
+
+</div>
+
+
+<div class="container">
+
+    <div class="card hero">
+
+        <div class="hero-icon">
+            🎓
+        </div>
+
+        <h1>
+            Student Placement Prediction
+        </h1>
+
+        <p>
+            Predict your placement possibility
+            using academic and profile information.
+        </p>
+
+        <div class="buttons">
+
+            <a href="{% url 'login' %}"
+               class="btn btn-primary">
+                Login
+            </a>
+
+            <a href="{% url 'studentregister' %}"
+               class="btn btn-secondary">
+                Register
+            </a>
+
+        </div>
+
+    </div>
+
+</div>
+
+</body>
+</html>

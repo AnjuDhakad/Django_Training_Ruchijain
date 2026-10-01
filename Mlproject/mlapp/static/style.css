@@ -1,0 +1,415 @@
+/* =========================
+   RESET
+========================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+/* =========================
+   BODY
+========================= */
+
+body {
+    font-family: "Segoe UI", Arial, sans-serif;
+
+    min-height: 100vh;
+
+    background:
+        radial-gradient(
+            circle at top left,
+            #dbeafe,
+            transparent 35%
+        ),
+        radial-gradient(
+            circle at bottom right,
+            #ede9fe,
+            transparent 35%
+        ),
+        linear-gradient(
+            135deg,
+            #f8fafc,
+            #eef2ff
+        );
+
+    color: #1e293b;
+}
+
+
+/* =========================
+   PAGE
+========================= */
+
+.page {
+    min-height: 100vh;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    padding: 40px 20px;
+}
+
+
+/* =========================
+   MAIN CARD
+========================= */
+
+.form-card {
+    width: 100%;
+
+    max-width: 850px;
+
+    background: rgba(255, 255, 255, 0.92);
+
+    border: 1px solid rgba(255, 255, 255, 0.8);
+
+    border-radius: 24px;
+
+    padding: 40px;
+
+    box-shadow:
+        0 25px 60px rgba(15, 23, 42, 0.12);
+
+    backdrop-filter: blur(15px);
+
+    animation: cardAppear 0.7s ease;
+}
+
+
+/* =========================
+   HEADER
+========================= */
+
+.header {
+    text-align: center;
+
+    margin-bottom: 35px;
+}
+
+
+.icon {
+    width: 65px;
+
+    height: 65px;
+
+    margin: 0 auto 15px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 18px;
+
+    font-size: 30px;
+
+    background: linear-gradient(
+        135deg,
+        #4f46e5,
+        #7c3aed
+    );
+
+    box-shadow:
+        0 10px 25px rgba(79, 70, 229, 0.25);
+}
+
+
+.header h1 {
+    font-size: 32px;
+
+    font-weight: 700;
+
+    color: #111827;
+
+    margin-bottom: 10px;
+}
+
+
+.header p {
+    color: #64748b;
+
+    font-size: 15px;
+
+    line-height: 1.6;
+}
+
+
+/* =========================
+   FORM GRID
+========================= */
+
+.form-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 22px;
+}
+
+
+/* =========================
+   INPUT GROUP
+========================= */
+
+.input-group {
+    position: relative;
+}
+
+
+.input-group label {
+    display: flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    margin-bottom: 8px;
+
+    font-size: 15px;
+
+    font-weight: 600;
+
+    color: #334155;
+}
+
+
+.input-group label span {
+    font-size: 11px;
+
+    font-weight: 400;
+
+    color: #94a3b8;
+}
+
+
+/* =========================
+   INPUT
+========================= */
+
+.input-group input {
+    width: 100%;
+
+    padding: 13px 15px;
+
+    border: 1.5px solid #e2e8f0;
+
+    border-radius: 11px;
+
+    background: #f8fafc;
+
+    color: #1e293b;
+
+    font-size: 15px;
+
+    outline: none;
+
+    transition:
+        border-color 0.3s ease,
+        box-shadow 0.3s ease,
+        background 0.3s ease,
+        transform 0.2s ease;
+}
+
+
+.input-group input::placeholder {
+    color: #a1a1aa;
+}
+
+
+.input-group input:hover {
+    border-color: #c7d2fe;
+}
+
+
+.input-group input:focus {
+    background: white;
+
+    border-color: #6366f1;
+
+    box-shadow:
+        0 0 0 4px rgba(99, 102, 241, 0.10);
+
+    transform: translateY(-1px);
+}
+
+
+/* =========================
+   REMOVE NUMBER ARROWS
+========================= */
+
+.input-group input::-webkit-outer-spin-button,
+.input-group input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+
+    margin: 0;
+}
+
+
+/* =========================
+   SUBMIT BUTTON
+========================= */
+
+.submit-btn {
+    width: 100%;
+
+    margin-top: 32px;
+
+    padding: 16px 22px;
+
+    border: none;
+
+    border-radius: 12px;
+
+    background: linear-gradient(
+        135deg,
+        #4f46e5,
+        #7c3aed
+    );
+
+    color: white;
+
+    font-size: 16px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 12px;
+
+    box-shadow:
+        0 10px 25px rgba(79, 70, 229, 0.25);
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+
+.submit-btn:hover {
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 15px 30px rgba(79, 70, 229, 0.35);
+}
+
+
+.submit-btn:active {
+    transform: scale(0.98);
+}
+
+
+.arrow {
+    font-size: 22px;
+
+    transition: transform 0.3s ease;
+}
+
+
+.submit-btn:hover .arrow {
+    transform: translateX(5px);
+}
+
+
+/* =========================
+   FOOTER TEXT
+========================= */
+
+.footer-text {
+    text-align: center;
+
+    margin-top: 22px;
+
+    font-size: 12px;
+
+    color: #94a3b8;
+}
+
+
+/* =========================
+   ANIMATION
+========================= */
+
+@keyframes cardAppear {
+
+    from {
+        opacity: 0;
+
+        transform:
+            translateY(25px)
+            scale(0.98);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            translateY(0)
+            scale(1);
+    }
+
+}
+
+
+/* =========================
+   TABLET
+========================= */
+
+@media (max-width: 750px) {
+
+    .form-grid {
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+
+    .form-card {
+        padding: 30px;
+    }
+
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 500px) {
+
+    .page {
+        padding: 20px 12px;
+    }
+
+    .form-card {
+        padding: 25px 18px;
+
+        border-radius: 18px;
+    }
+
+    .header h1 {
+        font-size: 25px;
+    }
+
+    .form-grid {
+        grid-template-columns: 1fr;
+
+        gap: 18px;
+    }
+
+    .header p {
+        font-size: 13px;
+    }
+
+}

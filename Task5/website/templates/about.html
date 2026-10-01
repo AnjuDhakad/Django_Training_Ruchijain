@@ -1,0 +1,83 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block content %}
+
+<div class="container">
+
+    <h2>Laptop Collection</h2>
+
+    <p class="subtitle">
+        Explore our collection of modern laptops
+    </p>
+
+
+    <div class="gallery">
+
+
+        <div class="card">
+
+            <img src="{% static 'laptop1.jpg' %}"
+                 alt="MacBook">
+
+            <h3>MacBook</h3>
+
+        </div>
+
+
+        <div class="card">
+
+            <img src="{% static 'laptop2.jpg' %}"
+                 alt="Dell Laptop">
+
+            <h3>Dell Laptop</h3>
+
+        </div>
+
+
+        <div class="card">
+
+            <img src="{% static 'laptop3.jpg' %}"
+                 alt="HP Laptop">
+
+            <h3>HP Laptop</h3>
+
+        </div>
+
+
+        <div class="card">
+
+            <img src="{% static 'laptop4.jpg' %}"
+                 alt="Lenovo Laptop">
+
+            <h3>Lenovo Laptop</h3>
+
+        </div>
+
+
+        <div class="card">
+
+            <img src="{% static 'laptop5.jpg' %}"
+                 alt="Asus Laptop">
+
+            <h3>Asus Laptop</h3>
+
+        </div>
+
+
+        <div class="card">
+
+            <img src="{% static 'laptop6.jpg' %}"
+                 alt="Acer Laptop">
+
+            <h3>Acer Laptop</h3>
+
+        </div>
+
+
+    </div>
+
+</div>
+
+{% endblock %}

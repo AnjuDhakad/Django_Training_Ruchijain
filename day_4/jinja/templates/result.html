@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <h1>result of{{name}}</h1>
+    </div>
+    <div>
+        {% if marks >= 80 %}
+        <h2>your grade is A</h2>
+        {% elif marks >= 70 %}
+        <h2>your grade is B</h2>
+        {% elif marks >= 60 %}
+        <h2>your grade is C</h2>
+        {% elif marks >= 50 %}
+        <h2>your grade is D</h2>
+        {% else %}
+        <h2>You are fail</h2>
+        {% endif %}
+    </div>
+</body>
+</html>

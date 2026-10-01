@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Test Result | TestPro</title>
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+
+            font-family: Arial, sans-serif;
+
+            color: white;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            padding: 30px;
+
+            background:
+                radial-gradient(
+                    circle at 50% 20%,
+                    rgba(124,58,237,.25),
+                    transparent 35%
+                ),
+                linear-gradient(
+                    135deg,
+                    #070b2d,
+                    #11164a,
+                    #21145b
+                );
+        }
+
+        .container {
+            width: 100%;
+            max-width: 850px;
+
+            text-align: center;
+        }
+
+        .logo {
+            font-size: 27px;
+
+            font-weight: bold;
+
+            margin-bottom: 25px;
+        }
+
+        .logo span {
+            color: #c084fc;
+        }
+
+        .result-card {
+            padding: 40px;
+
+            border-radius: 25px;
+
+            background:
+                rgba(15,23,60,.78);
+
+            border:
+                1px solid
+                rgba(139,92,246,.3);
+
+            backdrop-filter: blur(20px);
+
+            box-shadow:
+                0 25px 70px
+                rgba(0,0,0,.4);
+        }
+
+        .success-icon {
+            width: 80px;
+            height: 80px;
+
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+
+            margin: 0 auto 20px;
+
+            border-radius: 50%;
+
+            font-size: 35px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #7c3aed,
+                    #c026d3
+                );
+
+            box-shadow:
+                0 0 35px
+                rgba(124,58,237,.4);
+        }
+
+        h1 {
+            font-size: 34px;
+
+            margin-bottom: 8px;
+        }
+
+        .subtitle {
+            color: #94a3b8;
+
+            font-size: 14px;
+
+            margin-bottom: 30px;
+        }
+
+        .score {
+            font-size: 65px;
+
+            font-weight: 800;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    #8b5cf6,
+                    #e879f9
+                );
+
+            -webkit-background-clip: text;
+
+            -webkit-text-fill-color: transparent;
+
+            margin-bottom: 5px;
+        }
+
+        .score-label {
+            color: #94a3b8;
+
+            margin-bottom: 30px;
+        }
+
+        .stats {
+            display: grid;
+
+            grid-template-columns:
+                repeat(4,1fr);
+
+            gap: 12px;
+
+            margin-bottom: 30px;
+        }
+
+        .stat {
+            padding: 18px 10px;
+
+            border-radius: 13px;
+
+            background:
+                rgba(255,255,255,.04);
+
+            border:
+                1px solid
+                rgba(255,255,255,.07);
+        }
+
+        .stat strong {
+            display: block;
+
+            font-size: 23px;
+
+            margin-bottom: 5px;
+        }
+
+        .stat p {
+            color: #94a3b8;
+
+            font-size: 11px;
+        }
+
+        .correct {
+            color: #86efac;
+        }
+
+        .wrong {
+            color: #fca5a5;
+        }
+
+        .skipped {
+            color: #fde68a;
+        }
+
+        .total {
+            color: #c4b5fd;
+        }
+
+        .message {
+            color: #cbd5e1;
+
+            margin-bottom: 25px;
+
+            font-size: 14px;
+        }
+
+        .buttons {
+            display: flex;
+
+            justify-content: center;
+
+            gap: 12px;
+        }
+
+        .btn {
+            text-decoration: none;
+
+            padding: 12px 23px;
+
+            border-radius: 10px;
+
+            font-size: 13px;
+
+            font-weight: bold;
+
+            transition: .3s;
+        }
+
+        .primary {
+            color: white;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #7c3aed,
+                    #c026d3
+                );
+        }
+
+        .secondary {
+            color: #cbd5e1;
+
+            border:
+                1px solid
+                rgba(139,92,246,.5);
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+        }
+
+        @media(max-width:600px) {
+
+            .result-card {
+                padding: 25px 18px;
+            }
+
+            .stats {
+                grid-template-columns:
+                    1fr 1fr;
+            }
+
+            .score {
+                font-size: 50px;
+            }
+
+            .buttons {
+                flex-direction: column;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+
+<div class="container">
+
+
+    <div class="logo">
+        Test<span>Pro</span>
+    </div>
+
+
+    <div class="result-card">
+
+
+        <div class="success-icon">
+            🏆
+        </div>
+
+
+        <h1>
+            Test Completed!
+        </h1>
+
+
+        <p class="subtitle">
+            {{ result.test_name }}
+        </p>
+
+
+        <div class="score">
+
+            {{ result.score }}/{{ result.total_questions }}
+
+        </div>
+
+
+        <div class="score-label">
+            Your Score
+        </div>
+
+
+        <div class="stats">
+
+
+            <div class="stat">
+
+                <strong class="correct">
+                    {{ result.correct }}
+                </strong>
+
+                <p>
+                    Correct
+                </p>
+
+            </div>
+
+
+            <div class="stat">
+
+                <strong class="wrong">
+                    {{ result.wrong }}
+                </strong>
+
+                <p>
+                    Wrong
+                </p>
+
+            </div>
+
+
+            <div class="stat">
+
+                <strong class="skipped">
+                    {{ result.skipped }}
+                </strong>
+
+                <p>
+                    Skipped
+                </p>
+
+            </div>
+
+
+            <div class="stat">
+
+                <strong class="total">
+                    {{ result.total_questions }}
+                </strong>
+
+                <p>
+                    Total
+                </p>
+
+            </div>
+
+
+        </div>
+
+
+        {% if result.total_questions > 0 %}
+
+            {% widthratio result.score result.total_questions 100 as percentage %}
+
+            <p class="message">
+
+                You scored
+                <strong>{{ percentage }}%</strong>
+                in this test. Keep practicing to improve your score!
+
+            </p>
+
+        {% endif %}
+
+
+        <div class="buttons">
+
+
+            <a href="{% url 'dashboard' %}"
+               class="btn primary">
+
+                ← Dashboard
+
+            </a>
+
+
+            <a href="{% url 'history' %}"
+               class="btn secondary">
+
+                View History
+
+            </a>
+
+
+        </div>
+
+
+    </div>
+
+
+</div>
+
+
+</body>
+
+</html>

@@ -1,0 +1,75 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>OIST</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #dcfce7;
+            text-align: center;
+        }
+
+        .college {
+            background-color: white;
+            width: 650px;
+            margin: 60px auto;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0px 5px 20px gray;
+        }
+
+        h1 {
+            color: #172554;
+            margin-bottom: 30px;
+        }
+
+        .college img {
+            width: 500px;
+            height: 300px;
+            object-fit: cover;
+            border-radius: 15px;
+        }
+
+        .buttons {
+            margin-top: 30px;
+        }
+
+        .buttons a {
+            display: inline-block;
+            text-decoration: none;
+            color: white;
+            background-color: #2563eb;
+            padding: 12px 25px;
+            margin: 5px;
+            border-radius: 8px;
+            font-weight: bold;
+        }
+
+        .buttons a:hover {
+            background-color: #1d4ed8;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="college">
+
+        <h1>Oriental Institute of Science and Technology (OIST)</h1>
+
+        <img src="{% static 'OIST.jpg' %}" alt="OIST College">
+
+        <div class="buttons">
+            <a href="/">Home</a>
+            <a href="/sistec/">SISTec</a>
+            <a href="/lnct/">LNCT</a>
+            <a href="/oist/">OIST</a>
+        </div>
+
+    </div>
+
+</body>
+</html>

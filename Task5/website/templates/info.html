@@ -1,0 +1,83 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block content %}
+
+<div class="container">
+
+    <h2>Beautiful Palaces</h2>
+
+    <p class="subtitle">
+        Explore some beautiful and historic palaces
+    </p>
+
+
+    <div class="gallery">
+
+
+        <div class="card">
+
+            <img src="{% static 'place1.jpg' %}"
+                 alt="City Palace">
+
+            <h3>City Palace</h3>
+
+        </div>
+
+
+        <div class="card">
+
+            <img src="{% static 'place2.jpg' %}"
+                 alt="Mysore Palace">
+
+            <h3>Mysore Palace</h3>
+
+        </div>
+
+
+        <div class="card">
+
+            <img src="{% static 'place3.jpg' %}"
+                 alt="Lake Palace">
+
+            <h3>Lake Palace</h3>
+
+        </div>
+
+
+        <div class="card">
+
+            <img src="{% static 'place4.jpg' %}"
+                 alt="Umaid Bhawan Palace">
+
+            <h3>Umaid Bhawan Palace</h3>
+
+        </div>
+
+
+        <div class="card">
+
+            <img src="{% static 'place5.jpg' %}"
+                 alt="Lalgarh Palace">
+
+            <h3>Lalgarh Palace</h3>
+
+        </div>
+
+
+        <div class="card">
+
+            <img src="{% static 'place6.jpg' %}"
+                 alt="Hawa Mahal">
+
+            <h3>Hawa Mahal</h3>
+
+        </div>
+
+
+    </div>
+
+</div>
+
+{% endblock %}

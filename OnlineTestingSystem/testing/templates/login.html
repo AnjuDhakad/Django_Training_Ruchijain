@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Login | TestPro</title>
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+
+            font-family: Arial, sans-serif;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            color: white;
+
+            background:
+                radial-gradient(
+                    circle at 80% 20%,
+                    rgba(124,58,237,.25),
+                    transparent 30%
+                ),
+                radial-gradient(
+                    circle at 20% 80%,
+                    rgba(37,99,235,.18),
+                    transparent 30%
+                ),
+                linear-gradient(
+                    135deg,
+                    #070b2d,
+                    #11164a,
+                    #24145c
+                );
+
+            padding: 25px;
+        }
+
+        .box {
+            width: 100%;
+            max-width: 440px;
+
+            padding: 45px;
+
+            border-radius: 25px;
+
+            background:
+                rgba(13,20,57,.78);
+
+            border:
+                1px solid
+                rgba(139,92,246,.35);
+
+            backdrop-filter: blur(20px);
+
+            box-shadow:
+                0 25px 70px rgba(0,0,0,.4);
+        }
+
+        .logo {
+            text-align: center;
+
+            font-size: 30px;
+
+            font-weight: 800;
+
+            margin-bottom: 35px;
+        }
+
+        .logo span {
+            color: #c084fc;
+        }
+
+        .icon {
+            width: 65px;
+            height: 65px;
+
+            margin: 0 auto 20px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            border-radius: 18px;
+
+            font-size: 28px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #7c3aed,
+                    #c026d3
+                );
+
+            box-shadow:
+                0 0 30px
+                rgba(124,58,237,.4);
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 30px;
+            margin-bottom: 8px;
+        }
+
+        .subtitle {
+            text-align: center;
+
+            color: #94a3b8;
+
+            font-size: 14px;
+
+            margin-bottom: 30px;
+        }
+
+        .message {
+            padding: 12px;
+
+            border-radius: 8px;
+
+            margin-bottom: 15px;
+
+            background:
+                rgba(239,68,68,.15);
+
+            border:
+                1px solid
+                rgba(239,68,68,.35);
+
+            color: #fca5a5;
+
+            font-size: 13px;
+        }
+
+        .group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+
+            color: #cbd5e1;
+
+            font-size: 13px;
+
+            margin-bottom: 8px;
+        }
+
+        input {
+            width: 100%;
+
+            padding: 14px;
+
+            border-radius: 10px;
+
+            border:
+                1px solid
+                rgba(139,92,246,.25);
+
+            background:
+                rgba(255,255,255,.05);
+
+            color: white;
+
+            outline: none;
+        }
+
+        input:focus {
+            border-color: #8b5cf6;
+
+            box-shadow:
+                0 0 15px
+                rgba(124,58,237,.2);
+        }
+
+        input::placeholder {
+            color: #64748b;
+        }
+
+        button {
+            width: 100%;
+
+            padding: 14px;
+
+            border: none;
+
+            border-radius: 10px;
+
+            color: white;
+
+            font-size: 15px;
+
+            font-weight: bold;
+
+            cursor: pointer;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #7c3aed,
+                    #c026d3
+                );
+
+            transition: .3s;
+        }
+
+        button:hover {
+            transform: translateY(-2px);
+
+            box-shadow:
+                0 12px 30px
+                rgba(124,58,237,.4);
+        }
+
+        .signup {
+            text-align: center;
+
+            color: #94a3b8;
+
+            font-size: 13px;
+
+            margin-top: 22px;
+        }
+
+        .signup a {
+            color: #c084fc;
+
+            text-decoration: none;
+
+            font-weight: bold;
+        }
+
+        .back {
+            display: block;
+
+            text-align: center;
+
+            margin-top: 18px;
+
+            color: #64748b;
+
+            text-decoration: none;
+
+            font-size: 12px;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+
+<div class="box">
+
+
+    <div class="logo">
+        Test<span>Pro</span>
+    </div>
+
+
+    <div class="icon">
+        👤
+    </div>
+
+
+    <h1>
+        Welcome Back
+    </h1>
+
+
+    <p class="subtitle">
+        Login to continue your testing journey.
+    </p>
+
+
+    {% if messages %}
+
+        {% for message in messages %}
+
+            <div class="message">
+                {{ message }}
+            </div>
+
+        {% endfor %}
+
+    {% endif %}
+
+
+    <form method="POST">
+
+        {% csrf_token %}
+
+
+        <div class="group">
+
+            <label>
+                Username
+            </label>
+
+            <input
+                type="text"
+                name="username"
+                placeholder="Enter your username"
+                required
+            >
+
+        </div>
+
+
+        <div class="group">
+
+            <label>
+                Password
+            </label>
+
+            <input
+                type="password"
+                name="password"
+                placeholder="Enter your password"
+                required
+            >
+
+        </div>
+
+
+        <button type="submit">
+            Login →
+        </button>
+
+    </form>
+
+
+    <div class="signup">
+
+        Don't have an account?
+
+        <a href="{% url 'signup' %}">
+            Create Account
+        </a>
+
+    </div>
+
+
+    <a href="{% url 'home' %}" class="back">
+        ← Back to Home
+    </a>
+
+
+</div>
+
+
+</body>
+
+</html>from django.contrib import admin
+from .models import Student
+
+
+admin.site.register(Student)

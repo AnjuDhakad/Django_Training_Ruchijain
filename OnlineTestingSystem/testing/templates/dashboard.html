@@ -1,0 +1,704 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0">
+
+<title>Dashboard | TestPro</title>
+
+<style>
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+
+    min-height: 100vh;
+
+    font-family: Arial, sans-serif;
+
+    color: white;
+
+    background:
+        radial-gradient(
+            circle at 80% 10%,
+            rgba(124,58,237,.25),
+            transparent 30%
+        ),
+
+        linear-gradient(
+            135deg,
+            #070b2d,
+            #11164a,
+            #24145c
+        );
+
+}
+
+
+/* NAVBAR */
+
+nav {
+
+    height: 80px;
+
+    padding: 0 6%;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    border-bottom:
+        1px solid rgba(255,255,255,.1);
+
+    background:
+        rgba(5,10,40,.5);
+
+    backdrop-filter: blur(15px);
+
+}
+
+
+.logo {
+
+    font-size: 28px;
+
+    font-weight: 800;
+
+}
+
+
+.logo span {
+
+    color: #c084fc;
+
+}
+
+
+.nav-right {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 20px;
+
+}
+
+
+.welcome {
+
+    color: #cbd5e1;
+
+    font-size: 14px;
+
+}
+
+
+.logout {
+
+    color: white;
+
+    text-decoration: none;
+
+    padding: 9px 18px;
+
+    border-radius: 9px;
+
+    border:
+        1px solid rgba(139,92,246,.6);
+
+}
+
+
+/* CONTAINER */
+
+.container {
+
+    width: 88%;
+
+    max-width: 1250px;
+
+    margin: 45px auto;
+
+}
+
+
+/* HEADING */
+
+.heading {
+
+    margin-bottom: 30px;
+
+}
+
+
+.heading h1 {
+
+    font-size: 38px;
+
+    margin-bottom: 8px;
+
+}
+
+
+.heading p {
+
+    color: #9ca9c8;
+
+}
+
+
+/* STATS */
+
+.stats {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3,1fr);
+
+    gap: 20px;
+
+    margin-bottom: 35px;
+
+}
+
+
+.stat {
+
+    padding: 25px;
+
+    border-radius: 18px;
+
+    background:
+        rgba(15,23,60,.65);
+
+    border:
+        1px solid rgba(139,92,246,.22);
+
+}
+
+
+.stat h2 {
+
+    font-size: 30px;
+
+    margin-bottom: 5px;
+
+}
+
+
+.stat p {
+
+    color: #94a3b8;
+
+}
+
+
+/* TEST GRID */
+
+.test-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3,1fr);
+
+    gap: 22px;
+
+}
+
+
+.test-card {
+
+    padding: 25px;
+
+    border-radius: 20px;
+
+    background:
+        rgba(15,23,60,.72);
+
+    border:
+        1px solid rgba(139,92,246,.25);
+
+    transition: .3s;
+
+}
+
+
+.test-card:hover {
+
+    transform: translateY(-5px);
+
+    border-color: #8b5cf6;
+
+    box-shadow:
+        0 15px 35px
+        rgba(0,0,0,.25);
+
+}
+
+
+.test-icon {
+
+    width: 52px;
+
+    height: 52px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 14px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #7c3aed,
+            #c026d3
+        );
+
+    font-size: 24px;
+
+    margin-bottom: 18px;
+
+}
+
+
+.test-card h3 {
+
+    font-size: 20px;
+
+    margin-bottom: 10px;
+
+}
+
+
+.test-card p {
+
+    color: #9ca9c8;
+
+    line-height: 1.5;
+
+    font-size: 14px;
+
+    min-height: 45px;
+
+}
+
+
+.questions {
+
+    display: inline-block;
+
+    margin-top: 15px;
+
+    color: #c084fc;
+
+    font-size: 13px;
+
+}
+
+
+.start-btn {
+
+    display: block;
+
+    margin-top: 20px;
+
+    padding: 12px;
+
+    text-align: center;
+
+    color: white;
+
+    text-decoration: none;
+
+    border-radius: 10px;
+
+    font-weight: bold;
+
+    background:
+        linear-gradient(
+            135deg,
+            #7c3aed,
+            #c026d3
+        );
+
+}
+
+
+.history-btn {
+
+    display: block;
+
+    width: 200px;
+
+    margin: 35px auto;
+
+    text-align: center;
+
+    padding: 13px;
+
+    border-radius: 10px;
+
+    color: white;
+
+    text-decoration: none;
+
+    border:
+        1px solid #8b5cf6;
+
+}
+
+
+/* RESPONSIVE */
+
+@media(max-width:900px) {
+
+    .test-grid {
+
+        grid-template-columns:
+            repeat(2,1fr);
+
+    }
+
+}
+
+
+@media(max-width:600px) {
+
+    .stats {
+
+        grid-template-columns: 1fr;
+
+    }
+
+    .test-grid {
+
+        grid-template-columns: 1fr;
+
+    }
+
+    .welcome {
+
+        display: none;
+
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<nav>
+
+    <div class="logo">
+        Test<span>Pro</span>
+    </div>
+
+
+    <div class="nav-right">
+
+        <div class="welcome">
+            Welcome, {{ user.first_name|default:user.username }}
+        </div>
+
+        <a href="{% url 'logout' %}"
+           class="logout">
+            Logout
+        </a>
+
+    </div>
+
+</nav>
+
+
+
+<div class="container">
+
+
+    <div class="heading">
+
+        <h1>
+            Welcome back,
+            {{ user.first_name|default:user.username }} 👋
+        </h1>
+
+        <p>
+            Choose a test and start improving your knowledge.
+        </p>
+
+    </div>
+
+
+
+    <!-- STATS -->
+
+    <div class="stats">
+
+
+        <div class="stat">
+
+            <h2>
+                {{ total_tests }}
+            </h2>
+
+            <p>
+                Tests Completed
+            </p>
+
+        </div>
+
+
+        <div class="stat">
+
+            <h2>
+                {{ average_score }}%
+            </h2>
+
+            <p>
+                Average Score
+            </p>
+
+        </div>
+
+
+        <div class="stat">
+
+            <h2>
+                🚀
+            </h2>
+
+            <p>
+                Keep Going
+            </p>
+
+        </div>
+
+
+    </div>
+
+
+
+    <!-- SIX TESTS -->
+
+    <div class="test-grid">
+
+
+        <!-- TEST 1 -->
+
+        <div class="test-card">
+
+            <div class="test-icon">
+                🐍
+            </div>
+
+            <h3>
+                Python Fundamentals
+            </h3>
+
+            <p>
+                Test your Python programming
+                fundamentals and concepts.
+            </p>
+
+            <span class="questions">
+                10 Questions
+            </span>
+
+            <a href="{% url 'test' 10 %}"
+               class="start-btn">
+                Start Test →
+            </a>
+
+        </div>
+
+
+
+        <!-- TEST 2 -->
+
+        <div class="test-card">
+
+            <div class="test-icon">
+                🌐
+            </div>
+
+            <h3>
+                Web Development
+            </h3>
+
+            <p>
+                Test your knowledge of HTML,
+                CSS, JavaScript and web basics.
+            </p>
+
+            <span class="questions">
+                20 Questions
+            </span>
+
+            <a href="{% url 'test' 20 %}"
+               class="start-btn">
+                Start Test →
+            </a>
+
+        </div>
+
+
+
+        <!-- TEST 3 -->
+
+        <div class="test-card">
+
+            <div class="test-icon">
+                💻
+            </div>
+
+            <h3>
+                Computer Science Basics
+            </h3>
+
+            <p>
+                Test your knowledge of computer
+                science and programming concepts.
+            </p>
+
+            <span class="questions">
+                30 Questions
+            </span>
+
+            <a href="{% url 'test' 30 %}"
+               class="start-btn">
+                Start Test →
+            </a>
+
+        </div>
+
+
+
+        <!-- TEST 4 -->
+
+        <div class="test-card">
+
+            <div class="test-icon">
+                🟨
+            </div>
+
+            <h3>
+                JavaScript Basics
+            </h3>
+
+            <p>
+                Test your JavaScript fundamentals
+                and programming knowledge.
+            </p>
+
+            <span class="questions">
+                10 Questions
+            </span>
+
+            <a href="{% url 'test' 40 %}"
+               class="start-btn">
+                Start Test →
+            </a>
+
+        </div>
+
+
+
+        <!-- TEST 5 -->
+
+        <div class="test-card">
+
+            <div class="test-icon">
+                🗄️
+            </div>
+
+            <h3>
+                SQL & Database
+            </h3>
+
+            <p>
+                Test your SQL and database
+                management knowledge.
+            </p>
+
+            <span class="questions">
+                10 Questions
+            </span>
+
+            <a href="{% url 'test' 50 %}"
+               class="start-btn">
+                Start Test →
+            </a>
+
+        </div>
+
+
+
+        <!-- TEST 6 -->
+
+        <div class="test-card">
+
+            <div class="test-icon">
+                🤖
+            </div>
+
+            <h3>
+                AI & Data Science
+            </h3>
+
+            <p>
+                Test your Artificial Intelligence
+                and Data Science basics.
+            </p>
+
+            <span class="questions">
+                10 Questions
+            </span>
+
+            <a href="{% url 'test' 60 %}"
+               class="start-btn">
+                Start Test →
+            </a>
+
+        </div>
+
+
+    </div>
+
+
+
+    <!-- HISTORY -->
+
+    <a href="{% url 'history' %}"
+       class="history-btn">
+
+        📊 View Test History
+
+    </a>
+
+
+</div>
+
+
+</body>
+
+</html>

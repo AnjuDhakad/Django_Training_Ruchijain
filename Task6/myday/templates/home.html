@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Product Management</title>
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: linear-gradient(135deg, #eef2ff, #f8fafc);
+            min-height: 100vh;
+            color: #1f2937;
+        }
+
+        /* =========================
+           NAVBAR
+           ========================= */
+
+        .navbar {
+            background: #111827;
+            padding: 20px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            color: white;
+            font-size: 25px;
+            font-weight: bold;
+        }
+
+        .nav-text {
+            color: #d1d5db;
+            font-size: 15px;
+        }
+
+
+        /* =========================
+           MAIN
+           ========================= */
+
+        .container {
+            width: 90%;
+            max-width: 1000px;
+            margin: 70px auto;
+        }
+
+
+        .welcome-card {
+            background: white;
+            padding: 55px 45px;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
+        }
+
+        .welcome-card h1 {
+            font-size: 38px;
+            margin-bottom: 12px;
+            color: #111827;
+        }
+
+        .welcome-card p {
+            color: #6b7280;
+            font-size: 17px;
+            margin-bottom: 40px;
+        }
+
+
+        /* =========================
+           BUTTONS
+           ========================= */
+
+        .button-container {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            max-width: 650px;
+            margin: auto;
+        }
+
+        .btn {
+            padding: 18px 25px;
+            border-radius: 12px;
+            text-decoration: none;
+            font-size: 17px;
+            font-weight: bold;
+            transition: 0.3s;
+            display: block;
+        }
+
+
+        /* CREATE */
+
+        .create {
+            background: #16a34a;
+            color: white;
+        }
+
+        .create:hover {
+            background: #15803d;
+            transform: translateY(-3px);
+        }
+
+
+        /* READ */
+
+        .read {
+            background: #2563eb;
+            color: white;
+        }
+
+        .read:hover {
+            background: #1d4ed8;
+            transform: translateY(-3px);
+        }
+
+
+        /* UPDATE */
+
+        .update {
+            background: #f59e0b;
+            color: white;
+        }
+
+        .update:hover {
+            background: #d97706;
+            transform: translateY(-3px);
+        }
+
+
+        /* DELETE */
+
+        .delete {
+            background: #dc2626;
+            color: white;
+        }
+
+        .delete:hover {
+            background: #b91c1c;
+            transform: translateY(-3px);
+        }
+
+
+        /* =========================
+           FOOTER
+           ========================= */
+
+        .footer {
+            text-align: center;
+            margin-top: 40px;
+            color: #6b7280;
+            font-size: 14px;
+        }
+
+
+        /* =========================
+           MOBILE
+           ========================= */
+
+        @media (max-width: 600px) {
+
+            .navbar {
+                padding: 18px 5%;
+            }
+
+            .container {
+                margin: 40px auto;
+            }
+
+            .welcome-card {
+                padding: 40px 20px;
+            }
+
+            .welcome-card h1 {
+                font-size: 30px;
+            }
+
+            .button-container {
+                grid-template-columns: 1fr;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- NAVBAR -->
+
+    <nav class="navbar">
+
+        <div class="logo">
+            ProductHub
+        </div>
+
+        <div class="nav-text">
+            Product Management System
+        </div>
+
+    </nav>
+
+
+
+    <!-- MAIN CONTENT -->
+
+    <div class="container">
+
+        <div class="welcome-card">
+
+            <h1>
+                Product Management System
+            </h1>
+
+            <p>
+                Manage your products using Create, Read,
+                Update and Delete operations.
+            </p>
+
+
+            <div class="button-container">
+
+
+                <!-- CREATE -->
+
+                <a href="{% url 'newProductForm' %}"
+                   class="btn create">
+
+                    CREATE
+
+                </a>
+
+
+                <!-- READ -->
+
+                <a href="{% url 'Productlist' %}"
+                   class="btn read">
+
+                    READ
+
+                </a>
+
+
+                <!-- UPDATE -->
+
+                <a href="{% url 'Productlist' %}"
+                   class="btn update">
+
+                    UPDATE
+
+                </a>
+
+
+                <!-- DELETE -->
+
+                <a href="{% url 'Productlist' %}"
+                   class="btn delete">
+
+                    DELETE
+
+                </a>
+
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- FOOTER -->
+
+    <div class="footer">
+
+        © 2026 ProductHub | Django CRUD Project
+
+    </div>
+
+
+</body>
+
+</html>

@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Add Product</title>
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f4f7fb;
+        }
+
+        .navbar {
+            background: #111827;
+            padding: 18px 8%;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .logo {
+            color: white;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .nav-links a {
+            color: #d1d5db;
+            text-decoration: none;
+            margin-left: 25px;
+        }
+
+        .form-container {
+            width: 90%;
+            max-width: 550px;
+            margin: 50px auto;
+        }
+
+        .form-card {
+            background: white;
+            padding: 35px;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+            color: #374151;
+        }
+
+        input[type="text"],
+        input[type="number"] {
+            width: 100%;
+            padding: 13px;
+            margin-bottom: 20px;
+            border: 1px solid #d1d5db;
+            border-radius: 8px;
+            font-size: 15px;
+        }
+
+        input:focus {
+            outline: none;
+            border-color: #2563eb;
+        }
+
+        .buttons {
+            margin-top: 10px;
+        }
+
+        input[type="submit"],
+        .cancel {
+            padding: 12px 22px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        input[type="submit"] {
+            background: #16a34a;
+            color: white;
+        }
+
+        input[type="submit"]:hover {
+            background: #15803d;
+        }
+
+        .cancel {
+            background: #e5e7eb;
+            color: #111827;
+            margin-left: 8px;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <nav class="navbar">
+
+        <div class="logo">
+            ProductHub
+        </div>
+
+        <div class="nav-links">
+
+            <a href="{% url 'home' %}">
+                Home
+            </a>
+
+            <a href="{% url 'Productlist' %}">
+                Products
+            </a>
+
+        </div>
+
+    </nav>
+
+
+    <div class="form-container">
+
+        <div class="form-card">
+
+            <h1>Add New Product</h1>
+
+            <form action="{% url 'saveuser' %}" method="post">
+
+                {% csrf_token %}
+
+                <label for="p_name">
+                    Product Name
+                </label>
+
+                <input type="text"
+                       name="p_name"
+                       id="p_name"
+                       placeholder="Enter product name"
+                       required>
+
+
+                <label for="p_price">
+                    Product Price
+                </label>
+
+                <input type="number"
+                       name="p_price"
+                       id="p_price"
+                       placeholder="Enter product price"
+                       required>
+
+
+                <label for="p_offer">
+                    Product Offer
+                </label>
+
+                <input type="text"
+                       name="p_offer"
+                       id="p_offer"
+                       placeholder="Enter product offer"
+                       required>
+
+
+                <div class="buttons">
+
+                    <input type="submit"
+                           value="Save Product">
+
+                    <a href="{% url 'Productlist' %}"
+                       class="cancel">
+                        Cancel
+                    </a>
+
+                </div>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</body>
+
+</html>

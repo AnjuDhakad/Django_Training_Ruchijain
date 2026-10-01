@@ -1,0 +1,83 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block content %}
+
+<div class="container">
+
+    <h2>Mobile Collection</h2>
+
+    <p class="subtitle">
+        Explore our collection of popular mobile phones
+    </p>
+
+
+    <div class="gallery">
+
+
+        <div class="card">
+
+            <img src="{% static 'mobile1.jpg' %}"
+                 alt="iPhone">
+
+            <h3>iPhone</h3>
+
+        </div>
+
+
+        <div class="card">
+
+            <img src="{% static 'mobile2.jpg' %}"
+                 alt="Samsung">
+
+            <h3>Samsung Galaxy</h3>
+
+        </div>
+
+
+        <div class="card">
+
+            <img src="{% static 'mobile3.jpg' %}"
+                 alt="OnePlus">
+
+            <h3>OnePlus</h3>
+
+        </div>
+
+
+        <div class="card">
+
+            <img src="{% static 'mobile4.jpg' %}"
+                 alt="Google Pixel">
+
+            <h3>Google Pixel</h3>
+
+        </div>
+
+
+        <div class="card">
+
+            <img src="{% static 'mobile5.jpg' %}"
+                 alt="Vivo">
+
+            <h3>Vivo</h3>
+
+        </div>
+
+
+        <div class="card">
+
+            <img src="{% static 'mobile6.jpg' %}"
+                 alt="Oppo">
+
+            <h3>Oppo</h3>
+
+        </div>
+
+
+    </div>
+
+</div>
+
+{% endblock %}

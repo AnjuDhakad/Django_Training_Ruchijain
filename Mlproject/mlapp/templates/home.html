@@ -1,0 +1,225 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Glass Classification</title>
+
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+
+<body>
+
+<div class="page">
+
+    <div class="form-card">
+
+        <!-- Header -->
+        <div class="header">
+
+            <div class="icon">🔬</div>
+
+            <h1>Glass Classification</h1>
+
+            <p>
+                Enter the required chemical properties
+                to get the classification result.
+            </p>
+
+        </div>
+
+
+        <!-- Form -->
+        <form action="{% url 'result' %}" method="POST">
+
+            {% csrf_token %}
+
+            <div class="form-grid">
+
+                <!-- RI -->
+                <div class="input-group">
+                    <label for="RI">
+                        RI
+                        <span>Refractive Index</span>
+                    </label>
+
+                    <input
+                        type="number"
+                        step="any"
+                        id="RI"
+                        name="RI"
+                        placeholder="Enter RI"
+                        required
+                    >
+                </div>
+
+
+                <!-- Na -->
+                <div class="input-group">
+                    <label for="Na">
+                        Na
+                        <span>Sodium</span>
+                    </label>
+
+                    <input
+                        type="number"
+                        step="any"
+                        id="Na"
+                        name="Na"
+                        placeholder="Enter Na"
+                        required
+                    >
+                </div>
+
+
+                <!-- Mg -->
+                <div class="input-group">
+                    <label for="Mg">
+                        Mg
+                        <span>Magnesium</span>
+                    </label>
+
+                    <input
+                        type="number"
+                        step="any"
+                        id="Mg"
+                        name="Mg"
+                        placeholder="Enter Mg"
+                        required
+                    >
+                </div>
+
+
+                <!-- Al -->
+                <div class="input-group">
+                    <label for="AL">
+                        Al
+                        <span>Aluminium</span>
+                    </label>
+
+                    <input
+                        type="number"
+                        step="any"
+                        id="AL"
+                        name="AL"
+                        placeholder="Enter Al"
+                        required
+                    >
+                </div>
+
+
+                <!-- Si -->
+                <div class="input-group">
+                    <label for="Si">
+                        Si
+                        <span>Silicon</span>
+                    </label>
+
+                    <input
+                        type="number"
+                        step="any"
+                        id="Si"
+                        name="Si"
+                        placeholder="Enter Si"
+                        required
+                    >
+                </div>
+
+
+                <!-- K -->
+                <div class="input-group">
+                    <label for="K">
+                        K
+                        <span>Potassium</span>
+                    </label>
+
+                    <input
+                        type="number"
+                        step="any"
+                        id="K"
+                        name="K"
+                        placeholder="Enter K"
+                        required
+                    >
+                </div>
+
+
+                <!-- Ca -->
+                <div class="input-group">
+                    <label for="Ca">
+                        Ca
+                        <span>Calcium</span>
+                    </label>
+
+                    <input
+                        type="number"
+                        step="any"
+                        id="Ca"
+                        name="Ca"
+                        placeholder="Enter Ca"
+                        required
+                    >
+                </div>
+
+
+                <!-- Ba -->
+                <div class="input-group">
+                    <label for="Ba">
+                        Ba
+                        <span>Barium</span>
+                    </label>
+
+                    <input
+                        type="number"
+                        step="any"
+                        id="Ba"
+                        name="Ba"
+                        placeholder="Enter Ba"
+                        required
+                    >
+                </div>
+
+
+                <!-- Fe -->
+                <div class="input-group">
+                    <label for="Fe">
+                        Fe
+                        <span>Iron</span>
+                    </label>
+
+                    <input
+                        type="number"
+                        step="any"
+                        id="Fe"
+                        name="Fe"
+                        placeholder="Enter Fe"
+                        required
+                    >
+                </div>
+
+            </div>
+
+
+            <!-- Submit Button -->
+            <button type="submit" class="submit-btn">
+                <span>Predict Classification</span>
+                <span class="arrow">→</span>
+            </button>
+
+        </form>
+
+
+        <div class="footer-text">
+            Enter all values carefully before submitting
+        </div>
+
+    </div>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>Record Saved</title>
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            min-height: 100vh;
+            background: linear-gradient(
+                135deg,
+                #eef2ff,
+                #f8fafc
+            );
+        }
+
+        .navbar {
+            background: white;
+            padding: 18px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 3px 20px rgba(0,0,0,0.08);
+        }
+
+        .logo {
+            color: #4f46e5;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .logout {
+            text-decoration: none;
+            background: #ef4444;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 8px;
+            font-weight: bold;
+        }
+
+        .logout:hover {
+            background: #dc2626;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 650px;
+            margin: 70px auto;
+        }
+
+        .card {
+            background: white;
+            padding: 55px 40px;
+            border-radius: 22px;
+            text-align: center;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.10);
+        }
+
+        .icon {
+            font-size: 70px;
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            color: #166534;
+            margin-bottom: 15px;
+        }
+
+        p {
+            color: #64748b;
+            font-size: 17px;
+            margin-bottom: 30px;
+        }
+
+        .buttons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-block;
+            text-decoration: none;
+            padding: 13px 25px;
+            border-radius: 9px;
+            font-weight: bold;
+        }
+
+        .primary {
+            background: #4f46e5;
+            color: white;
+        }
+
+        .primary:hover {
+            background: #4338ca;
+        }
+
+        .secondary {
+            background: #fee2e2;
+            color: #b91c1c;
+        }
+
+        .secondary:hover {
+            background: #fecaca;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+
+    <div class="navbar">
+
+        <div class="logo">
+            Student Portal
+        </div>
+
+        <a
+            href="{% url 'logout' %}"
+            class="logout">
+
+            Logout
+
+        </a>
+
+    </div>
+
+
+    <div class="container">
+
+        <div class="card">
+
+            <div class="icon">
+                ✅
+            </div>
+
+            <h1>
+                Record Saved Successfully!
+            </h1>
+
+            <p>
+                Student information has been successfully
+                saved into the database.
+            </p>
+
+
+            <div class="buttons">
+
+                <a
+                    href="{% url 'studentform' %}"
+                    class="btn primary">
+
+                    Add Another Student
+
+                </a>
+
+
+                <a
+                    href="{% url 'logout' %}"
+                    class="btn secondary">
+
+                    Logout
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</body>
+
+</html>

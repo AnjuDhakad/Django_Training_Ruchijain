@@ -1,0 +1,91 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>Placement Result</title>
+
+    <link rel="stylesheet"
+          href="{% static 'style.css' %}">
+
+</head>
+
+<body>
+
+<div class="container">
+
+    <div class="card result-box">
+
+
+        {% if ans == 1 %}
+
+            <div class="result-icon">
+                🎉
+            </div>
+
+            <h1>
+                Congratulations!
+            </h1>
+
+        {% else %}
+
+            <div class="result-icon">
+                📚
+            </div>
+
+            <h1>
+                Keep Improving!
+            </h1>
+
+        {% endif %}
+
+
+        <div class="result-message">
+
+            {{ message }}
+
+        </div>
+
+
+        <div class="prediction-value">
+
+            <span>
+                Model Prediction
+            </span>
+
+            <strong>
+                {{ ans }}
+            </strong>
+
+        </div>
+
+
+        <div class="buttons">
+
+            <a
+                href="{% url 'studentprediction' %}"
+                class="btn btn-primary">
+
+                Predict Again
+
+            </a>
+
+
+            <a
+                href="{% url 'home' %}"
+                class="btn btn-secondary">
+
+                Home
+
+            </a>
+
+        </div>
+
+    </div>
+
+</div>
+
+</body>
+</html>

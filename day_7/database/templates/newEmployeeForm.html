@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="{% url 'saveuser' %}" method='post'>
+        {% csrf_token %}
+        <div>
+            <level for="eno">Employee Number</level>
+        </div>
+        <div>
+            <input type="text" name="eno" id="eno">
+        </div>
+
+        <div>
+            <level for="ename">Employee Name</level>
+        </div>
+        <div>
+            <input type="text" name="ename" id="ename">
+        </div>
+
+        <div>
+            <level for="esal">Employee Salary</level>
+        </div>
+        <div>
+            <input type="number" name="esal" id="esal">
+        </div>
+          <br>
+         <div>
+            <input type="submit" value="save">
+        </div>
+
+
+
+    </form>
+</body>
+</html>

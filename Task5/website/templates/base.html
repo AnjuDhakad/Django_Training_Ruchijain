@@ -1,0 +1,305 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>My Website</title>
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #dbeafe,
+                    #ede9fe,
+                    #fce7f3
+                );
+
+            min-height: 100vh;
+        }
+
+
+        /* HEADER */
+
+        header {
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #1e1b4b,
+                    #312e81,
+                    #4f46e5
+                );
+
+            color: white;
+
+            text-align: center;
+
+            padding: 30px 20px;
+
+            box-shadow:
+                0px 5px 15px rgba(0,0,0,0.2);
+        }
+
+        header h1 {
+
+            font-size: 40px;
+
+            margin-bottom: 20px;
+        }
+
+
+        /* NAVIGATION */
+
+        nav a {
+
+            display: inline-block;
+
+            text-decoration: none;
+
+            color: white;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #7c3aed,
+                    #ec4899
+                );
+
+            padding: 12px 28px;
+
+            margin: 5px;
+
+            border-radius: 10px;
+
+            font-weight: bold;
+
+            transition: 0.3s;
+        }
+
+
+        nav a:hover {
+
+            transform: translateY(-3px);
+
+            box-shadow:
+                0px 8px 20px rgba(0,0,0,0.25);
+        }
+
+
+        /* MAIN */
+
+        .container {
+
+            max-width: 1200px;
+
+            margin: auto;
+
+            padding: 50px 25px;
+
+            text-align: center;
+        }
+
+
+        .container h2 {
+
+            font-size: 38px;
+
+            color: #172554;
+
+            margin-bottom: 15px;
+        }
+
+
+        .subtitle {
+
+            color: #64748b;
+
+            font-size: 18px;
+
+            margin-bottom: 40px;
+        }
+
+
+        /* IMAGE CARDS */
+
+        .gallery {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap: 30px;
+        }
+
+
+        .card {
+
+            background-color: white;
+
+            padding: 20px;
+
+            border-radius: 20px;
+
+            box-shadow:
+                0px 10px 25px rgba(0,0,0,0.12);
+
+            transition: 0.3s;
+        }
+
+
+        .card:hover {
+
+            transform: translateY(-10px);
+
+            box-shadow:
+                0px 18px 35px rgba(0,0,0,0.2);
+        }
+
+
+        .card img {
+
+            width: 100%;
+
+            height: 230px;
+
+            object-fit: cover;
+
+            border-radius: 15px;
+
+            margin-bottom: 15px;
+        }
+
+
+        .card h3 {
+
+            color: #312e81;
+
+            font-size: 22px;
+        }
+
+
+        /* FOOTER */
+
+        footer {
+
+            background-color: #111827;
+
+            color: white;
+
+            text-align: center;
+
+            padding: 25px;
+
+            margin-top: 30px;
+
+            font-size: 16px;
+        }
+
+
+        footer span {
+
+            color: #a78bfa;
+
+            font-weight: bold;
+        }
+
+
+        /* RESPONSIVE */
+
+        @media (max-width: 800px) {
+
+            .gallery {
+
+                grid-template-columns:
+                    repeat(2, 1fr);
+            }
+
+        }
+
+
+        @media (max-width: 550px) {
+
+            .gallery {
+
+                grid-template-columns: 1fr;
+            }
+
+            header h1 {
+
+                font-size: 30px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- HEADER -->
+
+    <header>
+
+        <h1>My Website</h1>
+
+        <nav>
+
+            <a href="/">
+                Home
+            </a>
+
+            <a href="/about/">
+                About
+            </a>
+
+            <a href="/info/">
+                Info
+            </a>
+
+        </nav>
+
+    </header>
+
+
+    <!-- PAGE CONTENT -->
+
+    {% block content %}
+
+    {% endblock %}
+
+
+    <!-- FOOTER -->
+
+    <footer>
+
+        © 2026
+        <span> Anju Dhakad </span>
+        | All Rights Reserved
+
+    </footer>
+
+
+</body>
+
+</html>

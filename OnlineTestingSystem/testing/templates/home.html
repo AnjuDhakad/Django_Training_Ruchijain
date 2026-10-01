@@ -1,0 +1,1467 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Online Test| Online Testing System</title>
+
+
+    <style>
+
+        /* =====================================================
+           GLOBAL
+        ===================================================== */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+
+            min-height: 100vh;
+
+            color: white;
+
+            background:
+                radial-gradient(
+                    circle at 82% 25%,
+                    rgba(124, 58, 237, 0.22),
+                    transparent 28%
+                ),
+
+                radial-gradient(
+                    circle at 15% 75%,
+                    rgba(37, 99, 235, 0.16),
+                    transparent 28%
+                ),
+
+                linear-gradient(
+                    135deg,
+                    #070b2d 0%,
+                    #10164a 50%,
+                    #21145b 100%
+                );
+
+            overflow-x: hidden;
+        }
+
+
+        /* =====================================================
+           NAVBAR
+        ===================================================== */
+
+        nav {
+            height: 88px;
+
+            padding: 0 6%;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+            position: relative;
+
+            z-index: 20;
+
+            border-bottom:
+                1px solid rgba(255,255,255,0.10);
+
+            background:
+                rgba(5, 10, 40, 0.45);
+
+            backdrop-filter: blur(18px);
+        }
+
+
+        .logo {
+            display: flex;
+
+            align-items: center;
+
+            gap: 11px;
+
+            font-size: 29px;
+
+            font-weight: 800;
+
+            letter-spacing: -0.5px;
+        }
+
+
+        .logo-icon {
+            width: 43px;
+            height: 43px;
+
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+
+            border-radius: 13px;
+
+            font-size: 22px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #7c3aed,
+                    #4f46e5
+                );
+
+            box-shadow:
+                0 0 25px rgba(124,58,237,0.55);
+        }
+
+
+        .logo span {
+            background:
+                linear-gradient(
+                    90deg,
+                    #a78bfa,
+                    #d946ef
+                );
+
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+
+        /* CENTER NAV TEXT */
+
+        .nav-center {
+            color: #aeb9d5;
+
+            font-size: 14px;
+
+            letter-spacing: 0.5px;
+
+            font-weight: 500;
+
+            text-align: center;
+
+            white-space: nowrap;
+        }
+
+
+        /* LOGIN BUTTON */
+
+        .login-btn {
+            text-decoration: none;
+
+            color: white;
+
+            padding: 12px 25px;
+
+            border-radius: 13px;
+
+            border:
+                1px solid rgba(139,92,246,0.75);
+
+            background:
+                rgba(124,58,237,0.08);
+
+            transition: 0.3s;
+
+            font-weight: 600;
+        }
+
+
+        .login-btn:hover {
+            background: #7c3aed;
+
+            transform: translateY(-2px);
+
+            box-shadow:
+                0 0 28px rgba(124,58,237,0.55);
+        }
+
+
+        /* =====================================================
+           HERO
+        ===================================================== */
+
+        .hero {
+            width: 88%;
+
+            max-width: 1350px;
+
+            min-height:
+                calc(100vh - 88px);
+
+            margin: auto;
+
+            display: grid;
+
+            grid-template-columns:
+                minmax(0, 1.05fr)
+                minmax(0, 0.95fr);
+
+            align-items: center;
+
+            gap: 25px;
+
+            position: relative;
+        }
+
+
+        /* =====================================================
+           LEFT CONTENT
+        ===================================================== */
+
+        .content {
+            padding: 45px 0 55px;
+
+            position: relative;
+
+            z-index: 5;
+        }
+
+
+        /* BADGE */
+
+        .badge {
+            display: inline-flex;
+
+            align-items: center;
+
+            gap: 9px;
+
+            padding: 10px 18px;
+
+            border-radius: 50px;
+
+            margin-bottom: 25px;
+
+            color: #ddd6fe;
+
+            font-size: 15px;
+
+            border:
+                1px solid rgba(139,92,246,0.65);
+
+            background:
+                linear-gradient(
+                    90deg,
+                    rgba(124,58,237,0.22),
+                    rgba(37,99,235,0.16)
+                );
+
+            box-shadow:
+                0 0 22px rgba(124,58,237,0.18);
+        }
+
+
+        .badge-icon {
+            color: #c084fc;
+
+            font-size: 19px;
+        }
+
+
+        /* HEADING */
+
+        h1 {
+            font-size: clamp(
+                48px,
+                5vw,
+                70px
+            );
+
+            line-height: 1.06;
+
+            letter-spacing: -2.5px;
+
+            margin-bottom: 25px;
+
+            max-width: 720px;
+        }
+
+
+        h1 .gradient {
+            background:
+                linear-gradient(
+                    90deg,
+                    #8b5cf6,
+                    #c084fc,
+                    #e879f9
+                );
+
+            -webkit-background-clip: text;
+
+            -webkit-text-fill-color: transparent;
+
+            text-shadow:
+                0 0 35px rgba(168,85,247,0.2);
+        }
+
+
+        /* DESCRIPTION */
+
+        .description {
+            max-width: 620px;
+
+            color: #b8c1dc;
+
+            font-size: 17px;
+
+            line-height: 1.75;
+
+            margin-bottom: 30px;
+        }
+
+
+        /* =====================================================
+           BUTTONS
+        ===================================================== */
+
+        .buttons {
+            display: flex;
+
+            gap: 15px;
+
+            margin-bottom: 45px;
+        }
+
+
+        .btn {
+            display: inline-flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            gap: 9px;
+
+            padding: 14px 27px;
+
+            border-radius: 13px;
+
+            text-decoration: none;
+
+            font-size: 15px;
+
+            font-weight: 700;
+
+            transition: 0.3s;
+        }
+
+
+        .primary {
+            color: white;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #7c3aed,
+                    #9333ea,
+                    #c026d3
+                );
+
+            box-shadow:
+                0 9px 30px
+                rgba(124,58,237,0.35);
+        }
+
+
+        .primary:hover {
+            transform: translateY(-4px);
+
+            box-shadow:
+                0 14px 38px
+                rgba(168,85,247,0.5);
+        }
+
+
+        .secondary {
+            color: white;
+
+            border:
+                1px solid rgba(139,92,246,0.7);
+
+            background:
+                rgba(255,255,255,0.025);
+        }
+
+
+        .secondary:hover {
+            background:
+                rgba(124,58,237,0.14);
+
+            transform: translateY(-4px);
+        }
+
+
+        /* =====================================================
+           STATS
+        ===================================================== */
+
+        .stats {
+            display: flex;
+
+            align-items: flex-start;
+        }
+
+
+        .stat {
+            min-width: 145px;
+
+            padding:
+                0 25px;
+
+            border-right:
+                1px solid
+                rgba(255,255,255,0.15);
+        }
+
+
+        .stat:first-child {
+            padding-left: 0;
+        }
+
+
+        .stat:last-child {
+            border-right: none;
+        }
+
+
+        .stat-icon {
+            width: 43px;
+            height: 43px;
+
+            border-radius: 50%;
+
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+
+            margin-bottom: 9px;
+
+            font-size: 18px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #5b21b6,
+                    #7c3aed
+                );
+
+            box-shadow:
+                0 0 20px
+                rgba(124,58,237,0.3);
+        }
+
+
+        .stat strong {
+            display: block;
+
+            font-size: 18px;
+
+            margin-bottom: 5px;
+        }
+
+
+        .stat p {
+            color: #aeb9d5;
+
+            font-size: 13px;
+        }
+
+
+        /* =====================================================
+           RIGHT VISUAL
+        ===================================================== */
+
+        .visual {
+            position: relative;
+
+            height: 500px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+        }
+
+
+        /* MAIN GLOW */
+
+        .glow {
+            position: absolute;
+
+            width: 420px;
+            height: 420px;
+
+            border-radius: 50%;
+
+            background:
+                radial-gradient(
+                    circle,
+                    rgba(124,58,237,0.38),
+                    rgba(79,70,229,0.12),
+                    transparent 70%
+                );
+
+            filter: blur(8px);
+        }
+
+
+        /* =====================================================
+           LAPTOP
+        ===================================================== */
+
+        .laptop {
+            width: 390px;
+
+            position: relative;
+
+            z-index: 2;
+
+            transform:
+                perspective(900px)
+                rotateY(-5deg)
+                rotateX(2deg);
+
+            animation:
+                floating 4s ease-in-out infinite;
+        }
+
+
+        @keyframes floating {
+
+            0%, 100% {
+                transform:
+                    perspective(900px)
+                    rotateY(-5deg)
+                    rotateX(2deg)
+                    translateY(0);
+            }
+
+            50% {
+                transform:
+                    perspective(900px)
+                    rotateY(-5deg)
+                    rotateX(2deg)
+                    translateY(-10px);
+            }
+
+        }
+
+
+        /* LAPTOP SCREEN */
+
+        .screen {
+            height: 245px;
+
+            padding: 9px;
+
+            border-radius:
+                17px 17px 6px 6px;
+
+            background:
+                linear-gradient(
+                    145deg,
+                    #111c49,
+                    #070d29
+                );
+
+            border:
+                3px solid #3345a8;
+
+            box-shadow:
+                0 0 35px
+                rgba(79,70,229,0.4),
+
+                inset 0 0 20px
+                rgba(59,130,246,0.1);
+        }
+
+
+        .screen-inner {
+            height: 100%;
+
+            border-radius: 10px;
+
+            background: #071331;
+
+            padding: 13px;
+
+            border:
+                1px solid
+                rgba(139,92,246,0.3);
+        }
+
+
+        /* TEST TOP */
+
+        .test-top {
+            display: flex;
+
+            justify-content: space-between;
+
+            color: #8997bb;
+
+            font-size: 10px;
+
+            margin-bottom: 13px;
+        }
+
+
+        .timer {
+            color: #c4b5fd;
+        }
+
+
+        /* QUESTION */
+
+        .question {
+            color: white;
+
+            font-size: 13px;
+
+            line-height: 1.4;
+
+            margin-bottom: 12px;
+
+            font-weight: 600;
+        }
+
+
+        /* OPTIONS */
+
+        .option {
+            height: 29px;
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 8px;
+
+            padding:
+                0 10px;
+
+            border-radius: 7px;
+
+            margin-bottom: 6px;
+
+            color: #aeb9d5;
+
+            background:
+                rgba(255,255,255,0.035);
+
+            border:
+                1px solid
+                rgba(255,255,255,0.07);
+
+            font-size: 10px;
+        }
+
+
+        .option.selected {
+            color: white;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    rgba(124,58,237,0.72),
+                    rgba(99,102,241,0.5)
+                );
+
+            border-color: #8b5cf6;
+
+            box-shadow:
+                0 0 12px
+                rgba(124,58,237,0.25);
+        }
+
+
+        .radio {
+            width: 10px;
+            height: 10px;
+
+            border-radius: 50%;
+
+            border:
+                2px solid #64748b;
+        }
+
+
+        .selected .radio {
+            border-color: white;
+
+            background: white;
+
+            box-shadow:
+                inset 0 0 0 2px #7c3aed;
+        }
+
+
+        /* LAPTOP BASE */
+
+        .laptop-base {
+            height: 19px;
+
+            width: 108%;
+
+            margin-left: -4%;
+
+            border-radius:
+                0 0 21px 21px;
+
+            background:
+                linear-gradient(
+                    180deg,
+                    #4f46e5,
+                    #312e81
+                );
+
+            box-shadow:
+                0 10px 22px
+                rgba(0,0,0,0.4);
+        }
+
+
+        .trackpad {
+            width: 90px;
+
+            height: 5px;
+
+            background: #6366f1;
+
+            border-radius: 10px;
+
+            margin: auto;
+
+            opacity: 0.65;
+        }
+
+
+        /* =====================================================
+           FLOATING CARDS
+        ===================================================== */
+
+        .float-card {
+            position: absolute;
+
+            z-index: 5;
+
+            padding:
+                12px 16px;
+
+            border-radius: 14px;
+
+            background:
+                rgba(13,20,57,0.88);
+
+            border:
+                1px solid
+                rgba(139,92,246,0.45);
+
+            backdrop-filter: blur(14px);
+
+            box-shadow:
+                0 12px 30px
+                rgba(0,0,0,0.28),
+
+                0 0 20px
+                rgba(124,58,237,0.12);
+
+            animation:
+                cardFloat 4s ease-in-out infinite;
+
+            min-width: 165px;
+        }
+
+
+        .float-card h4 {
+            font-size: 14px;
+
+            margin-bottom: 5px;
+        }
+
+
+        .float-card p {
+            color: #aeb9d5;
+
+            font-size: 10px;
+        }
+
+
+        .card-one {
+            top: 62px;
+
+            left: -5px;
+        }
+
+
+        .card-two {
+            top: 92px;
+
+            right: -15px;
+
+            animation-delay: 1s;
+        }
+
+
+        .card-three {
+            bottom: 65px;
+
+            right: 0;
+
+            animation-delay: 2s;
+        }
+
+
+        @keyframes cardFloat {
+
+            0%, 100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-8px);
+            }
+
+        }
+
+
+        /* =====================================================
+           DECORATIONS
+        ===================================================== */
+
+        .dot-pattern {
+            position: absolute;
+
+            width: 85px;
+            height: 85px;
+
+            background-image:
+                radial-gradient(
+                    #8b5cf6 1.5px,
+                    transparent 1.5px
+                );
+
+            background-size: 14px 14px;
+
+            opacity: 0.35;
+
+            right: -5px;
+
+            top: 35px;
+        }
+
+
+        .circle-decoration {
+            position: absolute;
+
+            width: 65px;
+            height: 65px;
+
+            border-radius: 50%;
+
+            border:
+                1px solid
+                rgba(139,92,246,0.22);
+
+            right: 25px;
+
+            bottom: 40px;
+        }
+
+
+        /* =====================================================
+           BOTTOM GLOW
+        ===================================================== */
+
+        .bottom-glow {
+            position: fixed;
+
+            width: 750px;
+            height: 90px;
+
+            bottom: -65px;
+
+            left: 50%;
+
+            transform:
+                translateX(-50%);
+
+            background:
+                radial-gradient(
+                    ellipse,
+                    rgba(124,58,237,0.42),
+                    transparent 70%
+                );
+
+            filter: blur(20px);
+
+            pointer-events: none;
+        }
+
+
+        /* =====================================================
+           RESPONSIVE
+        ===================================================== */
+
+        @media (max-width: 1100px) {
+
+            .nav-center {
+                font-size: 13px;
+            }
+
+
+            .hero {
+                grid-template-columns: 1fr;
+
+                text-align: center;
+
+                padding-top: 45px;
+
+                padding-bottom: 70px;
+            }
+
+
+            .content {
+                display: flex;
+
+                flex-direction: column;
+
+                align-items: center;
+            }
+
+
+            .description {
+                margin-left: auto;
+
+                margin-right: auto;
+            }
+
+
+            .buttons {
+                justify-content: center;
+            }
+
+
+            .stats {
+                justify-content: center;
+
+                text-align: left;
+            }
+
+
+            .visual {
+                height: 430px;
+            }
+
+        }
+
+
+        @media (max-width: 650px) {
+
+            nav {
+                height: 75px;
+
+                padding:
+                    0 5%;
+            }
+
+
+            .logo {
+                font-size: 22px;
+            }
+
+
+            .logo-icon {
+                width: 37px;
+
+                height: 37px;
+
+                font-size: 18px;
+            }
+
+
+            .login-btn {
+                padding:
+                    9px 16px;
+
+                font-size: 13px;
+            }
+
+
+            .nav-center {
+                display: none;
+            }
+
+
+            .hero {
+                width: 90%;
+            }
+
+
+            h1 {
+                font-size: 43px;
+
+                letter-spacing: -1.5px;
+            }
+
+
+            .description {
+                font-size: 15px;
+            }
+
+
+            .buttons {
+                width: 100%;
+
+                flex-direction: column;
+            }
+
+
+            .btn {
+                width: 100%;
+            }
+
+
+            .stats {
+                width: 100%;
+
+                flex-direction: column;
+
+                gap: 20px;
+            }
+
+
+            .stat {
+                width: 100%;
+
+                border-right: none;
+
+                border-bottom:
+                    1px solid
+                    rgba(255,255,255,0.12);
+
+                padding:
+                    0 0 16px;
+            }
+
+
+            .visual {
+                height: 390px;
+            }
+
+
+            .laptop {
+                width: 310px;
+            }
+
+
+            .float-card {
+                transform: scale(0.85);
+            }
+
+
+            .card-one {
+                left: -10px;
+            }
+
+
+            .card-two {
+                right: -15px;
+            }
+
+
+            .card-three {
+                right: -5px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+     NAVBAR
+===================================================== -->
+
+<nav>
+
+    <div class="logo">
+
+        <div class="logo-icon">
+            🎓
+        </div>
+
+       Online Test<span></span>
+
+    </div>
+
+
+    <div class="nav-center">
+        Online Testing • Learn • Practice • Improve
+    </div>
+
+
+    <a href="{% url 'login' %}"
+       class="login-btn">
+
+        👤 &nbsp; Login
+
+    </a>
+
+</nav>
+
+
+
+<!-- =====================================================
+     HERO SECTION
+===================================================== -->
+
+<section class="hero">
+
+
+    <!-- =================================================
+         LEFT
+    ================================================== -->
+
+    <div class="content">
+
+
+        <div class="badge">
+
+            <span class="badge-icon">
+                ✦
+            </span>
+
+            Smart Online Testing System
+
+        </div>
+
+
+        <h1>
+
+            Test your knowledge.
+
+            <br>
+
+            <span class="gradient">
+                Improve your skills.
+            </span>
+
+        </h1>
+
+
+        <p class="description">
+
+            Take professional online tests, track your
+            performance and discover how much you really know.
+
+            Practice smarter. Learn faster. Grow better.
+
+        </p>
+
+
+        <!-- BUTTONS -->
+
+        <div class="buttons">
+
+
+            <a href="{% url 'signup' %}"
+               class="btn primary">
+
+                🚀 Get Started →
+
+            </a>
+
+
+            <a href="{% url 'login' %}"
+               class="btn secondary">
+
+                👤 Sign In
+
+            </a>
+
+
+        </div>
+
+
+        <!-- STATS -->
+
+        <div class="stats">
+
+
+            <div class="stat">
+
+                <div class="stat-icon">
+                    📄
+                </div>
+
+                <strong>
+                    10 / 20 / 30
+                </strong>
+
+                <p>
+                    Question Tests
+                </p>
+
+            </div>
+
+
+            <div class="stat">
+
+                <div class="stat-icon">
+                    ⚡
+                </div>
+
+                <strong>
+                    Instant
+                </strong>
+
+                <p>
+                    Result
+                </p>
+
+            </div>
+
+
+            <div class="stat">
+
+                <div class="stat-icon">
+                    📊
+                </div>
+
+                <strong>
+                    Track
+                </strong>
+
+                <p>
+                    Your Progress
+                </p>
+
+            </div>
+
+
+        </div>
+
+
+    </div>
+
+
+
+    <!-- =================================================
+         RIGHT VISUAL
+    ================================================== -->
+
+    <div class="visual">
+
+
+        <div class="glow"></div>
+
+
+        <div class="dot-pattern"></div>
+
+
+        <div class="circle-decoration"></div>
+
+
+
+        <!-- SMART LEARNING -->
+
+        <div class="float-card card-one">
+
+            <h4>
+                💡 Smart Learning
+            </h4>
+
+            <p>
+                Practice & improve
+            </p>
+
+        </div>
+
+
+
+        <!-- PROGRESS -->
+
+        <div class="float-card card-two">
+
+            <h4>
+                📈 Progress
+            </h4>
+
+            <p>
+                Track your performance
+            </p>
+
+        </div>
+
+
+
+        <!-- INSTANT RESULT -->
+
+        <div class="float-card card-three">
+
+            <h4>
+                ⚡ Instant Result
+            </h4>
+
+            <p>
+                Know your score instantly
+            </p>
+
+        </div>
+
+
+
+        <!-- =================================================
+             LAPTOP
+        ================================================== -->
+
+        <div class="laptop">
+
+
+            <!-- SCREEN -->
+
+            <div class="screen">
+
+
+                <div class="screen-inner">
+
+
+                    <div class="test-top">
+
+                        <span>
+                            ☰ &nbsp; Question 4 of 10
+                        </span>
+
+                        <span class="timer">
+                            ◷ 09:42
+                        </span>
+
+                    </div>
+
+
+                    <div class="question">
+
+                        Which keyword is used to define
+                        a function in Python?
+
+                    </div>
+
+
+                    <div class="option">
+
+                        <span class="radio"></span>
+
+                        function
+
+                    </div>
+
+
+                    <div class="option selected">
+
+                        <span class="radio"></span>
+
+                        def
+
+                    </div>
+
+
+                    <div class="option">
+
+                        <span class="radio"></span>
+
+                        define
+
+                    </div>
+
+
+                    <div class="option">
+
+                        <span class="radio"></span>
+
+                        fun
+
+                    </div>
+
+
+                    <div style="
+                        display:flex;
+                        justify-content:flex-end;
+                        margin-top:12px;
+                    ">
+
+                        <span style="
+                            padding:7px 13px;
+                            border-radius:7px;
+
+                            background:
+                                linear-gradient(
+                                    135deg,
+                                    #7c3aed,
+                                    #c026d3
+                                );
+
+                            font-size:10px;
+                        ">
+
+                            Next →
+
+                        </span>
+
+                    </div>
+
+
+                </div>
+
+
+            </div>
+
+
+            <!-- LAPTOP BASE -->
+
+            <div class="laptop-base">
+
+                <div class="trackpad"></div>
+
+            </div>
+
+
+        </div>
+
+
+    </div>
+
+
+</section>
+
+
+
+<div class="bottom-glow"></div>
+
+
+</body>
+
+</html>

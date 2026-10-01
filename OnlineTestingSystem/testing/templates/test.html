@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>{{ test.name }} | TestPro</title>
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+
+            font-family: Arial, sans-serif;
+
+            color: white;
+
+            background:
+                radial-gradient(
+                    circle at 85% 10%,
+                    rgba(124,58,237,.20),
+                    transparent 28%
+                ),
+                linear-gradient(
+                    135deg,
+                    #070b2d,
+                    #11164a,
+                    #21145b
+                );
+
+            padding-bottom: 50px;
+        }
+
+        nav {
+            height: 75px;
+
+            padding: 0 6%;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+            border-bottom:
+                1px solid rgba(255,255,255,.1);
+
+            background:
+                rgba(5,10,40,.6);
+
+            backdrop-filter: blur(15px);
+        }
+
+        .logo {
+            font-size: 25px;
+            font-weight: bold;
+        }
+
+        .logo span {
+            color: #c084fc;
+        }
+
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .test-name {
+            color: #cbd5e1;
+            font-size: 14px;
+        }
+
+        .exit {
+            color: #fca5a5;
+
+            text-decoration: none;
+
+            font-size: 13px;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 950px;
+
+            margin: 35px auto;
+        }
+
+        .header {
+            margin-bottom: 25px;
+        }
+
+        .header-top {
+            display: flex;
+
+            justify-content: space-between;
+
+            align-items: center;
+
+            margin-bottom: 10px;
+        }
+
+        .header h1 {
+            font-size: 30px;
+        }
+
+        .header p {
+            color: #94a3b8;
+
+            font-size: 14px;
+        }
+
+        .question-count {
+            padding: 9px 15px;
+
+            border-radius: 20px;
+
+            background:
+                rgba(124,58,237,.15);
+
+            border:
+                1px solid
+                rgba(139,92,246,.4);
+
+            color: #c4b5fd;
+
+            font-size: 13px;
+        }
+
+        .progress-box {
+            height: 7px;
+
+            border-radius: 20px;
+
+            background:
+                rgba(255,255,255,.08);
+
+            overflow: hidden;
+
+            margin-top: 20px;
+        }
+
+        .progress {
+            height: 100%;
+
+            width: 40%;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    #7c3aed,
+                    #c026d3
+                );
+
+            border-radius: 20px;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+        }
+
+        .question-card {
+            padding: 25px;
+
+            border-radius: 17px;
+
+            background:
+                rgba(15,23,60,.75);
+
+            border:
+                1px solid
+                rgba(139,92,246,.22);
+
+            backdrop-filter: blur(12px);
+
+            transition: .25s;
+        }
+
+        .question-card:hover {
+            border-color:
+                rgba(139,92,246,.45);
+        }
+
+        .number {
+            display: inline-flex;
+
+            align-items: center;
+            justify-content: center;
+
+            width: 31px;
+            height: 31px;
+
+            border-radius: 9px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #7c3aed,
+                    #9333ea
+                );
+
+            font-size: 13px;
+
+            font-weight: bold;
+
+            margin-bottom: 14px;
+        }
+
+        .question-text {
+            font-size: 17px;
+
+            line-height: 1.5;
+
+            margin-bottom: 17px;
+
+            color: #f8fafc;
+        }
+
+        .options {
+            display: grid;
+
+            grid-template-columns:
+                1fr 1fr;
+
+            gap: 10px;
+        }
+
+        .option {
+            position: relative;
+        }
+
+        .option input {
+            position: absolute;
+
+            opacity: 0;
+
+            pointer-events: none;
+        }
+
+        .option label {
+            display: flex;
+
+            align-items: center;
+
+            min-height: 48px;
+
+            padding: 11px 14px;
+
+            border-radius: 10px;
+
+            cursor: pointer;
+
+            color: #b8c1dc;
+
+            background:
+                rgba(255,255,255,.035);
+
+            border:
+                1px solid
+                rgba(255,255,255,.08);
+
+            transition: .25s;
+        }
+
+        .option label:hover {
+            color: white;
+
+            border-color:
+                rgba(139,92,246,.5);
+
+            background:
+                rgba(124,58,237,.10);
+        }
+
+        .option input:checked + label {
+            color: white;
+
+            border-color: #8b5cf6;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    rgba(124,58,237,.55),
+                    rgba(192,38,211,.28)
+                );
+
+            box-shadow:
+                0 0 15px
+                rgba(124,58,237,.15);
+        }
+
+        .letter {
+            width: 27px;
+            height: 27px;
+
+            min-width: 27px;
+
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+
+            border-radius: 7px;
+
+            margin-right: 10px;
+
+            background:
+                rgba(255,255,255,.08);
+
+            color: #c4b5fd;
+
+            font-size: 12px;
+
+            font-weight: bold;
+        }
+
+        .submit-area {
+            display: flex;
+
+            justify-content: center;
+
+            padding-top: 15px;
+        }
+
+        .submit-btn {
+            min-width: 240px;
+
+            padding: 15px 30px;
+
+            border: none;
+
+            border-radius: 11px;
+
+            color: white;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #7c3aed,
+                    #c026d3
+                );
+
+            font-size: 15px;
+
+            font-weight: bold;
+
+            cursor: pointer;
+
+            box-shadow:
+                0 10px 30px
+                rgba(124,58,237,.3);
+
+            transition: .3s;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-3px);
+
+            box-shadow:
+                0 15px 35px
+                rgba(124,58,237,.45);
+        }
+
+        @media(max-width:700px) {
+
+            .options {
+                grid-template-columns: 1fr;
+            }
+
+            .header-top {
+                flex-direction: column;
+
+                align-items: flex-start;
+
+                gap: 12px;
+            }
+
+            .test-name {
+                display: none;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+
+<nav>
+
+    <div class="logo">
+        Test<span>Pro</span>
+    </div>
+
+    <div class="nav-right">
+
+        <span class="test-name">
+            {{ test.name }}
+        </span>
+
+        <a href="{% url 'dashboard' %}"
+           class="exit">
+            Exit Test
+        </a>
+
+    </div>
+
+</nav>
+
+
+<div class="container">
+
+
+    <div class="header">
+
+        <div class="header-top">
+
+            <div>
+
+                <h1>
+                    {{ test.name }}
+                </h1>
+
+                <p>
+                    Select the correct answer for each question.
+                </p>
+
+            </div>
+
+            <div class="question-count">
+                {{ test.questions|length }} Questions
+            </div>
+
+        </div>
+
+
+        <div class="progress-box">
+
+            <div class="progress"></div>
+
+        </div>
+
+    </div>
+
+
+    <form method="POST">
+
+        {% csrf_token %}
+
+
+        {% for question in test.questions %}
+
+        <div class="question-card">
+
+
+            <div class="number">
+                {{ forloop.counter }}
+            </div>
+
+
+            <div class="question-text">
+
+                {{ question.question }}
+
+            </div>
+
+
+            <div class="options">
+
+
+                {% for option in question.options %}
+
+                <div class="option">
+
+                    <input
+                        type="radio"
+                        id="q{{ forloop.parentloop.counter }}_{{ forloop.counter }}"
+                        name="question_{{ forloop.parentloop.counter0 }}"
+                        value="{{ option }}"
+                    >
+
+
+                    <label
+                        for="q{{ forloop.parentloop.counter }}_{{ forloop.counter }}"
+                    >
+
+                        <span class="letter">
+
+                            {% if forloop.counter == 1 %}
+                                A
+                            {% elif forloop.counter == 2 %}
+                                B
+                            {% elif forloop.counter == 3 %}
+                                C
+                            {% else %}
+                                D
+                            {% endif %}
+
+                        </span>
+
+                        {{ option }}
+
+                    </label>
+
+                </div>
+
+                {% endfor %}
+
+
+            </div>
+
+
+        </div>
+
+        {% endfor %}
+
+
+        <div class="submit-area">
+
+            <button
+                type="submit"
+                class="submit-btn">
+
+                Submit Test &nbsp; → 
+
+            </button>
+
+        </div>
+
+
+    </form>
+
+
+</div>
+
+
+</body>
+
+</html>

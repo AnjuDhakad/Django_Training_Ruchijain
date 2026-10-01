@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Python Quiz</title>
+
+    <style>
+
+        body {
+            margin: 0;
+            padding: 30px;
+
+            font-family: Arial, sans-serif;
+
+            background-color: #dbeafe;
+        }
+
+        .quiz-container {
+            max-width: 800px;
+            margin: auto;
+
+            background-color: white;
+
+            padding: 30px;
+
+            border-radius: 15px;
+
+            box-shadow: 0px 5px 20px gray;
+        }
+
+        .quiz-heading {
+            text-align: center;
+
+            color: #4c1d95;
+
+            font-size: 38px;
+
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            text-align: center;
+
+            color: #475569;
+
+            font-size: 18px;
+
+            margin-bottom: 30px;
+        }
+
+        .question {
+            background-color: #f3e8ff;
+
+            padding: 20px;
+
+            margin-bottom: 20px;
+
+            border-radius: 10px;
+
+            border-left: 6px solid #7c3aed;
+        }
+
+        .question h3 {
+            color: #312e81;
+
+            margin-top: 0;
+        }
+
+        label {
+            display: block;
+
+            padding: 8px;
+
+            color: #374151;
+
+            cursor: pointer;
+        }
+
+        label:hover {
+            background-color: #ddd6fe;
+
+            border-radius: 5px;
+        }
+
+        input[type="radio"] {
+            margin-right: 8px;
+        }
+
+        .submit-button {
+            display: block;
+
+            margin: 30px auto 0;
+
+            padding: 14px 40px;
+
+            background-color: #7c3aed;
+
+            color: white;
+
+            border: none;
+
+            border-radius: 8px;
+
+            font-size: 18px;
+
+            font-weight: bold;
+
+            cursor: pointer;
+        }
+
+        .submit-button:hover {
+            background-color: #5b21b6;
+        }
+
+    </style>
+</head>
+
+
+<body>
+
+    <div class="quiz-container">
+
+        <h1 class="quiz-heading">Python Quiz</h1>
+
+        <p class="subtitle">
+            Test Your Basic Python Knowledge
+        </p>
+
+
+        <form>
+
+            <!-- Question 1 -->
+            <div class="question">
+
+                <h3>1. Who developed Python programming language?</h3>
+
+                <label>
+                    <input type="radio" name="q1">
+                    A) James Gosling
+                </label>
+
+                <label>
+                    <input type="radio" name="q1">
+                    B) Dennis Ritchie
+                </label>
+
+                <label>
+                    <input type="radio" name="q1">
+                    C) Guido van Rossum
+                </label>
+
+                <label>
+                    <input type="radio" name="q1">
+                    D) Bjarne Stroustrup
+                </label>
+
+            </div>
+
+
+            <!-- Question 2 -->
+            <div class="question">
+
+                <h3>2. Which symbol is used for comments in Python?</h3>
+
+                <label>
+                    <input type="radio" name="q2">
+                    A) //
+                </label>
+
+                <label>
+                    <input type="radio" name="q2">
+                    B) #
+                </label>
+
+                <label>
+                    <input type="radio" name="q2">
+                    C) /* */
+                </label>
+
+                <label>
+                    <input type="radio" name="q2">
+                    D) &lt;!-- --&gt;
+                </label>
+
+            </div>
+
+
+            <!-- Question 3 -->
+            <div class="question">
+
+                <h3>3. Which keyword is used to define a function?</h3>
+
+                <label>
+                    <input type="radio" name="q3">
+                    A) function
+                </label>
+
+                <label>
+                    <input type="radio" name="q3">
+                    B) define
+                </label>
+
+                <label>
+                    <input type="radio" name="q3">
+                    C) def
+                </label>
+
+                <label>
+                    <input type="radio" name="q3">
+                    D) fun
+                </label>
+
+            </div>
+
+
+            <!-- Question 4 -->
+            <div class="question">
+
+                <h3>4. Which data type is used to store True or False?</h3>
+
+                <label>
+                    <input type="radio" name="q4">
+                    A) int
+                </label>
+
+                <label>
+                    <input type="radio" name="q4">
+                    B) str
+                </label>
+
+                <label>
+                    <input type="radio" name="q4">
+                    C) bool
+                </label>
+
+                <label>
+                    <input type="radio" name="q4">
+                    D) float
+                </label>
+
+            </div>
+
+
+            <!-- Question 5 -->
+            <div class="question">
+
+                <h3>5. Which function is used to display output in Python?</h3>
+
+                <label>
+                    <input type="radio" name="q5">
+                    A) display()
+                </label>
+
+                <label>
+                    <input type="radio" name="q5">
+                    B) print()
+                </label>
+
+                <label>
+                    <input type="radio" name="q5">
+                    C) show()
+                </label>
+
+                <label>
+                    <input type="radio" name="q5">
+                    D) output()
+                </label>
+
+            </div>
+
+
+            <!-- Question 6 -->
+            <div class="question">
+
+                <h3>6. Which of these is a Python list?</h3>
+
+                <label>
+                    <input type="radio" name="q6">
+                    A) (1, 2, 3)
+                </label>
+
+                <label>
+                    <input type="radio" name="q6">
+                    B) {1, 2, 3}
+                </label>
+
+                <label>
+                    <input type="radio" name="q6">
+                    C) [1, 2, 3]
+                </label>
+
+                <label>
+                    <input type="radio" name="q6">
+                    D) &lt;1, 2, 3&gt;
+                </label>
+
+            </div>
+
+
+            <!-- Question 7 -->
+            <div class="question">
+
+                <h3>7. Which operator is used for exponentiation?</h3>
+
+                <label>
+                    <input type="radio" name="q7">
+                    A) ^
+                </label>
+
+                <label>
+                    <input type="radio" name="q7">
+                    B) **
+                </label>
+
+                <label>
+                    <input type="radio" name="q7">
+                    C) //
+                </label>
+
+                <label>
+                    <input type="radio" name="q7">
+                    D) %%
+                </label>
+
+            </div>
+
+
+            <!-- Question 8 -->
+            <div class="question">
+
+                <h3>8. Which keyword is used for a loop?</h3>
+
+                <label>
+                    <input type="radio" name="q8">
+                    A) repeat
+                </label>
+
+                <label>
+                    <input type="radio" name="q8">
+                    B) loop
+                </label>
+
+                <label>
+                    <input type="radio" name="q8">
+                    C) for
+                </label>
+
+                <label>
+                    <input type="radio" name="q8">
+                    D) repeatfor
+                </label>
+
+            </div>
+
+
+            <!-- Question 9 -->
+            <div class="question">
+
+                <h3>9. Which method adds an item to a list?</h3>
+
+                <label>
+                    <input type="radio" name="q9">
+                    A) add()
+                </label>
+
+                <label>
+                    <input type="radio" name="q9">
+                    B) insertItem()
+                </label>
+
+                <label>
+                    <input type="radio" name="q9">
+                    C) append()
+                </label>
+
+                <label>
+                    <input type="radio" name="q9">
+                    D) push()
+                </label>
+
+            </div>
+
+
+            <!-- Question 10 -->
+            <div class="question">
+
+                <h3>10. Which extension is used for Python files?</h3>
+
+                <label>
+                    <input type="radio" name="q10">
+                    A) .java
+                </label>
+
+                <label>
+                    <input type="radio" name="q10">
+                    B) .py
+                </label>
+
+                <label>
+                    <input type="radio" name="q10">
+                    C) .html
+                </label>
+
+                <label>
+                    <input type="radio" name="q10">
+                    D) .python
+                </label>
+
+            </div>
+
+
+            <!-- Submit Button -->
+            <button type="submit" class="submit-button">
+                Submit Quiz
+            </button>
+
+        </form>
+
+    </div>
+
+</body>
+</html>
